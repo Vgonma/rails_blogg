@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  user1 = User.new(name: 'John', photo: 'my_photo.com', bio: 'Some bio message')
-  subject { Post.new(author: user1, title: 'post title', text: 'posts text') }
+  subject {
+    Post.new(
+      author: User.new(name: 'John', photo: 'my_photo.com', bio: 'Some bio message'),
+      title: 'post title',
+      text: 'posts text',
+      comments_counter: 0,
+      likes_counter: 0
+    )
+  }
   before { subject.save }
 
   it 'title should be present' do
@@ -26,5 +33,17 @@ RSpec.describe Post, type: :model do
   it 'likes_counter should be positive' do
     subject.likes_counter = -1
     expect(subject).to_not be_valid
+  end
+
+  it 'shows at most 5 recent comments' do
+    subject.comments = [
+      Comment.new(post: subject, author: subject.author, text: 'Hi Tom!'),
+      Comment.new(post: subject, author: subject.author, text: 'Hi Tom!'),
+      Comment.new(post: subject, author: subject.author, text: 'Hi Tom!'),
+      Comment.new(post: subject, author: subject.author, text: 'Hi Tom!'),
+      Comment.new(post: subject, author: subject.author, text: 'Hi Tom!'),
+      Comment.new(post: subject, author: subject.author, text: 'Hi Tom!')
+    ]
+    expect(subject.recent_comments.length).to eql(5)
   end
 end
