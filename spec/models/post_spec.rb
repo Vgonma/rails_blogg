@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject {
+  subject do
     Post.new(
       author: User.new(name: 'John', photo: 'my_photo.com', bio: 'Some bio message'),
       title: 'post title',
@@ -9,7 +9,7 @@ RSpec.describe Post, type: :model do
       comments_counter: 0,
       likes_counter: 0
     )
-  }
+  end
   before { subject.save }
 
   it 'title should be present' do
