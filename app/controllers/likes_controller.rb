@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
     @like.author = current_user
     respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path)  } if @like.save
+      format.html { redirect_back(fallback_location: root_path) } if @like.save
     end
   end
 
