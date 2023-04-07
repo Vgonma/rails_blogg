@@ -8,7 +8,7 @@
       <%= link_to user_post_path(@user, post) do %>
         <div class="post">
           <h4>Post #<%= post.id %></h4>
-          <p><%= post.text.truncate(100, separator: ' ') %></p>
+          <p><%= post.text %></p>
         </div>
       <% end %>
       <% if post.comments.length.positive? %>
