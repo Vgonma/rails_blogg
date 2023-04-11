@@ -11,6 +11,7 @@ class PostsTest < ApplicationSystemTestCase
     @post1 = Post.create(author: @user, title: 'This is a post', text: 'This is the post text', comments_counter: 0,
                          likes_counter: 0)
     @comment1 = Comment.create(post: @post1, author: @user, text: 'This is a comment')
+    @comment2 = Comment.create(post: @post1, author: @user, text: 'This is the second comment')
   end
 
   test 'Can see profile picture of user' do
@@ -63,4 +64,35 @@ class PostsTest < ApplicationSystemTestCase
     click_link(@post1.title)
     assert_current_path(user_post_path(@user, @post1))
   end
+
+  # Post show page
+  test 'can see the post\'s title.' do
+    visit user_post_path(@user, @post1)
+    assert_text @post1.title
+  end
+  test 'can see who wrote the post' do
+    visit user_post_path(@user, @post1)
+    assert_text @post1.author.name
+  end
+  test 'can see how many comments it has' do
+    visit user_post_path(@user, @post1)
+    assert_text @post1.comments_counter.to_s
+  end
+  test 'I can see how many likes it has' do
+    visit user_post_path(@user, @post1)
+    assert_text @post1.likes_counter.to_s
+  end
+  test 'can see the post body' do
+    visit user_post_path(@user, @post1)
+    assert_text @post1.text
+  end
+  test 'can see the username of each commentor' do
+    visit user_post_path(@user, @post1)
+    assert_text @user.name
+  end
+  test 'can see the comment each commentor left' do
+    visit user_post_path(@user, @post1)
+    assert_selector('.single-comment', count:2)
+  end
+
 end
