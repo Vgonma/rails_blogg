@@ -92,7 +92,6 @@ class PostsTest < ApplicationSystemTestCase
   end
   test 'can see the comment each commentor left' do
     visit user_post_path(@user, @post1)
-    assert_selector('.single-comment', count:2)
+    assert_selector('.single-comment', count: 2)
   end
-
 end
