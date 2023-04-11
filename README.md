@@ -106,6 +106,18 @@ To run the project run the command:
 ```ruby
   rails server
 ```
+### Tests
+
+To run the tests run the following commands:
+
+Install gems
+```ruby
+  bundle install
+```
+Run tests
+```ruby
+  rspec spec
+```
 
 ### Deployment
 
