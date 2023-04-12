@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
+    @comments = @post.comments
+    @comments = @posts.comment.includes([:author])
   end
 
   def new
