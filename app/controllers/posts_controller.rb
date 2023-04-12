@@ -35,7 +35,9 @@ class PostsController < ApplicationController
       format.html { redirect_to user_posts_path(current_user), notice: 'Post destroyed successfully' }
     end
   end
+
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
