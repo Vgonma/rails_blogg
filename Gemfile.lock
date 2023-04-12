@@ -139,10 +139,13 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.14.2-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.6)
+    pg (1.4.6-x64-mingw-ucrt)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -224,6 +227,8 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27-x64-mingw-ucrt)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.27-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -234,6 +239,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -254,6 +261,7 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -279,9 +287,6 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
-
-RUBY VERSION
-   ruby 3.2.0p0
 
 BUNDLED WITH
    2.4.8
