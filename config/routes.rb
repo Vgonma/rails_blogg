@@ -6,5 +6,13 @@ Rails.application.routes.draw do
       resources :comments, :likes
     end
   end
-  # post '/users/:user_id/posts/:post_id/likes', to likes#create
+  namespace :api do
+    namespace :v1 do
+      resources :users do
+        resources :posts do
+          resources :comments
+        end
+      end
+    end
+  end
 end
