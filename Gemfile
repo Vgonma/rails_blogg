@@ -7,6 +7,8 @@ gem 'cancancan'
 
 gem 'devise'
 
+gem 'rswag'
+
 gem 'letter_opener', group: :development
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
