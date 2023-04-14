@@ -64,7 +64,7 @@ RSpec.describe 'api/v1/users', type: :request do
     end
   end
 
-  path '/api/v1/users/{id}' do
+  path '/api/v1/users/{id}' do # rubocop: disable Metrics/BlockLength
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
     get('show user') do
